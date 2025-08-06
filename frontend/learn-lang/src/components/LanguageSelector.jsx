@@ -5,7 +5,10 @@ const LanguageSelector = () => {
     <div>
       <label>Select Language: </label>
       <select>
-        {/* Options to be added */}
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="hi">Hindi</option>
+        <option value="fr">French</option>
       </select>
     </div>
   );
