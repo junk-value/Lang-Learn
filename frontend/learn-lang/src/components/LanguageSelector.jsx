@@ -1,10 +1,10 @@
 import React from 'react';
 
-const LanguageSelector = () => {
+const LanguageSelector = ({ onChange }) => {
   return (
     <div>
       <label>Select Language: </label>
-      <select style={{ padding: '0.5rem', fontSize: '16px' }}>
+      <select onChange={(e) => onChange(e.target.value)} style={{ padding: '0.5rem', fontSize: '16px' }}>
         <option value="en">English</option>
         <option value="es">Spanish</option>
         <option value="hi">Hindi</option>
@@ -13,5 +13,6 @@ const LanguageSelector = () => {
     </div>
   );
 };
+
 
 export default LanguageSelector;
