@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+select {
+  cursor: pointer;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+select:hover {
+  background-color: #f0f0f0;
+}
