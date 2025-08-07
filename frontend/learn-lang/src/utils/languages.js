@@ -7,3 +7,13 @@ export const greetings = {
   Japanese: "こんにちは",
   Tamil: "வணக்கம்"
 };
+
+export const languageFlags = {
+  English: "🇬🇧",
+  Spanish: "🇪🇸",
+  Hindi: "🇮🇳",
+  French: "🇫🇷",
+  German: "🇩🇪",
+  Japanese: "🇯🇵",
+  Tamil: "🇮🇳"
+};

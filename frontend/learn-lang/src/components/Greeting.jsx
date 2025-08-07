@@ -1,11 +1,10 @@
-import React from 'react';
+import { greetings, languageFlags } from '../utils/languages';
 
-const Greeting = ({ language }) => {
+function Greeting({ language }) {
+  if (!language) return <h2>Please select a language</h2>;
   return (
-    <div>
-      <h2>Greeting goes here</h2>
-    </div>
+    <h2>
+      {languageFlags[language]} {greetings[language]}
+    </h2>
   );
-};
-
-export default Greeting;
+}
