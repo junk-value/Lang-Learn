@@ -1,10 +1,17 @@
-import { languageFlags } from '../utils/languages';
+import React from "react";
+import { languageFlags } from "../utils/languages.jsx";
 
-<select onChange={handleChange} value={selectedLanguage}>
-  <option value="">-- Select --</option>
-  {Object.keys(languageFlags).map((lang) => (
-    <option key={lang} value={lang}>
-      {languageFlags[lang]} {lang}
-    </option>
-  ))}
-</select>
+export default function LanguageSelect({ handleChange, selectedLanguage }) {
+  const flags = languageFlags || {};
+
+  return (
+    <select onChange={handleChange} value={selectedLanguage}>
+      <option value="">-- Select --</option>
+      {Object.keys(flags).map((lang) => (
+        <option key={lang} value={lang}>
+          {flags[lang]} {lang}
+        </option>
+      ))}
+    </select>
+  );
+}

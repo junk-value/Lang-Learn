@@ -1,10 +1,10 @@
-import { greetings, languageFlags } from '../utils/languages';
+import { greetings, languageFlags } from './utils/languages.jsx';
 
-function Greeting({ language }) {
-  if (!language) return <h2>Please select a language</h2>;
+function GreetingCard({ lang }) {
   return (
-    <h2>
-      {languageFlags[language]} {greetings[language]}
-    </h2>
+    <div>
+      <span>{languageFlags[lang]} </span>
+      <span>{greetings[lang]}</span>
+    </div>
   );
 }

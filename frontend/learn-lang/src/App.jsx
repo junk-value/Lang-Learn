@@ -1,31 +1,35 @@
-import { useState } from 'react'
-import Header from './components/Header.jsx'
-import Footer from './components/Footer.jsx'
-import Button from './components/Button.jsx'
+import { useState } from 'react';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import Button from './components/Button.jsx';
 import Card from './components/Card.jsx';
 import LessonList from './components/LessonList';
 import LanguageSelector from './components/LanguageSelector.jsx';
-import Greeting from './components/Greeting.jsx';
-import './App.css'
+ //import Greeting from './components/Greeting.jsx';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0);
+  //const [language, setLanguage] = useState('en'); // ✅ moved outside JSX
 
   return (
     <>
       <Header />
       <h1>Welcome to LearnLang!</h1>
-      <Card title="Welcome" content="This is a learning App."/>
+
+      <Card title="Welcome" content="This is a learning App." />
       <LessonList />
-      const [language, setLanguage] = useState('en');
+
       <div>
-      <LanguageSelector onChange={setLanguage} />
-      <Greeting language={language} />
+        <LanguageSelector onChange={setLanguage} />
+        {/* <Greeting language={language} /> */}
       </div>
+
       <Button text="Learn Now" onClick={() => alert('Clicked')} />
-      <Footer/>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
