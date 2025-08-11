@@ -1,5 +1,4 @@
-import React from "react";
-import { languageFlags } from "../utils/languages.jsx";
+import { languageFlags } from "./utils/languages.jsx";
 
 export default function LanguageSelect({ handleChange, selectedLanguage }) {
   const flags = languageFlags || {};

@@ -1,19 +1,11 @@
 export const greetings = {
-  English: "Hello!",
-  Spanish: "¡Hola!",
-  Hindi: "नमस्ते!",
-  French: "Bonjour!",
-  German: "Hallo!",
-  Japanese: "こんにちは",
-  Tamil: "வணக்கம்"
+  en: "Hello",
+  fr: "Bonjour",
+  es: "Hola"
 };
 
 export const languageFlags = {
-  English: "🇬🇧",
-  Spanish: "🇪🇸",
-  Hindi: "🇮🇳",
-  French: "🇫🇷",
-  German: "🇩🇪",
-  Japanese: "🇯🇵",
-  Tamil: "🇮🇳"
+  en: "🇺🇸",
+  fr: "🇫🇷",
+  es: "🇪🇸"
 };

@@ -5,12 +5,12 @@ import Button from './components/Button.jsx';
 import Card from './components/Card.jsx';
 import LessonList from './components/LessonList';
 import LanguageSelector from './components/LanguageSelector.jsx';
- //import Greeting from './components/Greeting.jsx';
+import Greeting from './components/Greeting.jsx';
 import './App.css';
 
 function App() {
-  //const [count, setCount] = useState(0);
-  //const [language, setLanguage] = useState('en'); // ✅ moved outside JSX
+  const [count, setCount] = useState(0);
+  const [language, setLanguage] = useState('en'); // ✅ moved outside JSX
 
   return (
     <>
