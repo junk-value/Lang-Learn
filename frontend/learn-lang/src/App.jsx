@@ -10,12 +10,23 @@ import LanguageSelect from "./components/LanguageSelect";
 import WordOfTheDay from "./components/WordOfTheDay";
 import SearchWord from "./components/SearchWord";
 import ProgressTracker from "./components/ProgressTracker";
+import QuizMode from "./components/QuizMode";
 import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [language, setLanguage] = useState('en'); // ✅ moved outside JSX
-   const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [language, setLanguage] = useState('en'); 
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [learnedWords, setLearnedWords] = useState(() => {
+    return JSON.parse(localStorage.getItem("learnedWords")) || [];
+  });
+  useEffect(() => {
+    localStorage.setItem("learnedWords", JSON.stringify(learnedWords));
+  }, [learnedWords]);
+
+  const handleLanguageChange = (e) => {
+    setSelectedLanguage(e.target.value);
+  };
   return (
     <>
       <Header />
@@ -35,6 +46,7 @@ function App() {
       <WordOfTheDay selectedLanguage={selectedLanguage} />
       <SearchWord selectedLanguage={selectedLanguage} />
       <ProgressTracker />
+      <QuizMode words={learnedWords} />
       <Button text="Learn Now" onClick={() => alert('Clicked')} />
       <Footer />
     </>
