@@ -1,32 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { wordsList } from "../utils/data";
 
-export default function WordOfTheDay() {
-  const [word, setWord] = useState("");
-  const [definition, setDefinition] = useState("");
+export default function WordOfTheDay({ selectedLanguage }) {
+  const [word, setWord] = useState(null);
+
+  const getRandomWord = () => {
+    const random = wordsList[Math.floor(Math.random() * wordsList.length)];
+    setWord(random);
+  };
 
   useEffect(() => {
-    // Hardcoded word for now — later can be fetched from an API
-    const todaysWord = {
-      word: "Serendipity",
-      definition:
-        "The occurrence of events by chance in a happy or beneficial way."
-    };
-
-    setWord(todaysWord.word);
-    setDefinition(todaysWord.definition);
+    getRandomWord();
   }, []);
 
+  if (!selectedLanguage) {
+    return <p>Please select a language.</p>;
+  }
+
+  if (!word) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <div style={{ padding: "1rem", border: "1px solid #ccc", margin: "1rem" }}>
-      <h2>Word of the Day</h2>
-      {word ? (
-        <>
-          <h3>{word}</h3>
-          <p>{definition}</p>
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+    <div className="word-of-day">
+      <h3>Word of the Day</h3>
+      <p>
+        <b>{word[selectedLanguage]}</b> — {word.en}
+      </p>
+      <button onClick={getRandomWord}>Refresh Word</button>
     </div>
   );
 }
