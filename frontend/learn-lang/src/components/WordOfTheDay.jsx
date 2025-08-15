@@ -1,22 +1,32 @@
-import { useEffect, useState } from "react";
-import { wordsList } from "../utils/data";
+import React, { useState, useEffect } from "react";
 
-export default function WordOfTheDay({ selectedLanguage }) {
-  const [word, setWord] = useState(null);
+export default function WordOfTheDay() {
+  const [word, setWord] = useState("");
+  const [definition, setDefinition] = useState("");
 
   useEffect(() => {
-    const randomWord = wordsList[Math.floor(Math.random() * wordsList.length)];
-    setWord(randomWord);
+    // Hardcoded word for now — later can be fetched from an API
+    const todaysWord = {
+      word: "Serendipity",
+      definition:
+        "The occurrence of events by chance in a happy or beneficial way."
+    };
+
+    setWord(todaysWord.word);
+    setDefinition(todaysWord.definition);
   }, []);
 
-  if (!selectedLanguage || !word) return null;
-
   return (
-    <div className="word-of-day">
-      <h3>Word of the Day</h3>
-      <p>
-        <b>{word[selectedLanguage]}</b> — {word.en}
-      </p>
+    <div style={{ padding: "1rem", border: "1px solid #ccc", margin: "1rem" }}>
+      <h2>Word of the Day</h2>
+      {word ? (
+        <>
+          <h3>{word}</h3>
+          <p>{definition}</p>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }

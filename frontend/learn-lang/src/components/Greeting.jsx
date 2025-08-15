@@ -1,4 +1,4 @@
-import { greetings, languageFlags } from './utils/languages.jsx';
+import { greetings, languageFlags } from '../utils/languages.jsx';
 
 function GreetingCard({ lang }) {
   return (

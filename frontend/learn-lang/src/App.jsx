@@ -6,7 +6,6 @@ import Card from './components/Card.jsx';
 import LessonList from './components/LessonList';
 import LanguageSelector from './components/LanguageSelector.jsx';
 import Greeting from './components/Greeting.jsx';
-import LanguageSelect from "./components/LanguageSelect";
 import WordOfTheDay from "./components/WordOfTheDay";
 import SearchWord from "./components/SearchWord";
 import ProgressTracker from "./components/ProgressTracker";
@@ -35,11 +34,7 @@ function App() {
       <Card title="Welcome" content="This is a learning App." />
       <LessonList />
 
-      <div>
-        <LanguageSelector onChange={setLanguage} />
-        {/* <Greeting language={language} /> */}
-      </div>
-      <LanguageSelect
+      <LanguageSelector
         handleChange={(e) => setSelectedLanguage(e.target.value)}
         selectedLanguage={selectedLanguage}
       />
