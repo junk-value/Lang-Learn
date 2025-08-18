@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./ProgressTracker.css";
 
 export default function ProgressTracker({ learnedCount }) {
   const [goal, setGoal] = useState(() => Number(localStorage.getItem("dailyGoal")) || 5);
