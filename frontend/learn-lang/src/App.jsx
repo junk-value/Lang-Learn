@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Button from './components/Button.jsx';
@@ -34,13 +34,16 @@ function App() {
       <Card title="Welcome" content="This is a learning App." />
       <LessonList />
 
-      <LanguageSelector
-        handleChange={(e) => setSelectedLanguage(e.target.value)}
+      <div>
+        <LanguageSelector 
+        handleChange={(e) => setSelectedLanguage(e.target.value)} 
         selectedLanguage={selectedLanguage}
-      />
+        />
+        <Greeting language={selectedLanguage} />
+      </div>
       <WordOfTheDay selectedLanguage={selectedLanguage} />
       <SearchWord selectedLanguage={selectedLanguage} />
-      <ProgressTracker />
+      <ProgressTracker learnedCount={learnedWords.length}/>
       <QuizMode words={learnedWords} />
       <Button text="Learn Now" onClick={() => alert('Clicked')} />
       <Footer />
@@ -49,4 +52,3 @@ function App() {
 }
 
 export default App;
-

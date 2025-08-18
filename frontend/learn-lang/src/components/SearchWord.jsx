@@ -3,34 +3,52 @@ import { wordsList } from "../utils/data";
 
 export default function SearchWord({ selectedLanguage }) {
   const [query, setQuery] = useState("");
-  const [result, setResult] = useState(null);
+  const [results, setResults] = useState([]);
 
   const handleSearch = () => {
-    const found = wordsList.find(
+    if (!query.trim()) {
+      setResults(["Please enter a word to search"]);
+      return;
+    }
+
+    const found = wordsList.filter(
       (w) =>
-        w[selectedLanguage]?.toLowerCase() === query.toLowerCase() ||
-        w.en.toLowerCase() === query.toLowerCase()
+        w[selectedLanguage]?.toLowerCase().includes(query.toLowerCase()) ||
+        w.en.toLowerCase().includes(query.toLowerCase())
     );
-    setResult(found || "Not found");
+
+    setResults(found.length ? found : ["Not found"]);
   };
 
   return (
-    <div className="search-word">
+    <div className="search-word p-4">
       <input
         type="text"
         placeholder="Search a word..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        className="border rounded p-2 mr-2"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button
+        onClick={handleSearch}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        Search
+      </button>
 
-      {result && (
-        <p>
-          {typeof result === "string"
-            ? result
-            : `${result[selectedLanguage]} — ${result.en}`}
-        </p>
-      )}
+      <div className="mt-4">
+        {results.map((res, idx) =>
+          typeof res === "string" ? (
+            <p key={idx} className="text-red-500">
+              {res}
+            </p>
+          ) : (
+            <p key={idx} className="text-green-700">
+              {res[selectedLanguage]} — {res.en}
+            </p>
+          )
+        )}
+      </div>
     </div>
   );
 }

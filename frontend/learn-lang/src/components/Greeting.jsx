@@ -8,3 +8,5 @@ function GreetingCard({ lang }) {
     </div>
   );
 }
+
+export default GreetingCard
