@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { wordsList } from "../utils/data";
+import "./SearchWord.css";
 
 export default function SearchWord({ selectedLanguage }) {
   const [query, setQuery] = useState("");
