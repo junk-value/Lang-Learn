@@ -15,10 +15,15 @@ export default function SearchWord({ selectedLanguage }) {
     setResult(found || "Not found");
   };
 
-  const handleClear = () => {
-    setQuery("");
-    setResult(null);
-  };
+  const suggestions = query
+    ? wordsList.filter(
+        (w) =>
+          w[selectedLanguage]
+            ?.toLowerCase()
+            .startsWith(query.toLowerCase()) ||
+          w.en.toLowerCase().startsWith(query.toLowerCase())
+      )
+    : [];
 
   return (
     <div className="search-word">
@@ -29,7 +34,6 @@ export default function SearchWord({ selectedLanguage }) {
         onChange={(e) => setQuery(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
-      <button onClick={handleClear}>Clear</button>
 
       {result && (
         <p>
@@ -37,6 +41,16 @@ export default function SearchWord({ selectedLanguage }) {
             ? result
             : `${result[selectedLanguage]} — ${result.en}`}
         </p>
+      )}
+
+      {suggestions.length > 0 && (
+        <ul>
+          {suggestions.slice(0, 5).map((s, idx) => (
+            <li key={idx}>
+              {s[selectedLanguage]} — {s.en}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
