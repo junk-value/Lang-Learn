@@ -1,33 +1,19 @@
-import React, { useEffect, useState } from "react";
+// src/components/WordOfTheDay.jsx
+import { useMemo } from "react";
 import { wordsList } from "../utils/data";
 
 export default function WordOfTheDay({ selectedLanguage }) {
-  const [word, setWord] = useState(null);
-
-  const getRandomWord = () => {
-    const random = wordsList[Math.floor(Math.random() * wordsList.length)];
-    setWord(random);
-  };
-
-  useEffect(() => {
-    getRandomWord();
+  const word = useMemo(() => {
+    const randomIndex = Math.floor(Math.random() * wordsList.length);
+    return wordsList[randomIndex];
   }, []);
 
-  if (!selectedLanguage) {
-    return <p>Please select a language.</p>;
-  }
-
-  if (!word) {
-    return <p>Loading...</p>;
-  }
-
   return (
-    <div className="word-of-day">
-      <h3>Word of the Day</h3>
-      <p>
-        <b>{word[selectedLanguage]}</b> — {word.en}
+    <div className="word-of-day p-4 bg-blue-100 rounded shadow">
+      <h2 className="text-lg font-bold mb-2">Word of the Day</h2>
+      <p className="text-lg">
+        {word[selectedLanguage]} — {word.en}
       </p>
-      <button onClick={getRandomWord}>Refresh Word</button>
     </div>
   );
 }
