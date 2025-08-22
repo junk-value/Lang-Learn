@@ -10,6 +10,7 @@ import WordOfTheDay from "./components/WordOfTheDay";
 import SearchWord from "./components/SearchWord";
 import ProgressTracker from "./components/ProgressTracker";
 import QuizMode from "./components/QuizMode";
+import UserProfile from "./components/UserProfile";
 import './App.css';
 
 function App() {
@@ -33,6 +34,13 @@ function App() {
 
       <Card title="Welcome" content="This is a learning App." />
       <LessonList />
+      <div className="p-6">
+      <UserProfile 
+        name="Tejal Sharma" 
+        email="tejal@example.com" 
+        role="Frontend Developer" 
+      />
+      </div>
 
       <div>
         <LanguageSelector 
