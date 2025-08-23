@@ -12,6 +12,7 @@ import ProgressTracker from "./components/ProgressTracker";
 import QuizMode from "./components/QuizMode";
 import UserProfile from "./components/UserProfile";
 import Notifications from "./components/Notifications";
+import DashboardStats from "./components/DashboardStats";
 import './App.css';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
 
       <Card title="Welcome" content="This is a learning App." />
       <Notifications/>
+      <DashboardStats/>
       <LessonList />
       <div className="p-6">
       <UserProfile 

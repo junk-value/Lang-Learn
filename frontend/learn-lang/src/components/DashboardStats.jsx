@@ -11,10 +11,12 @@ export default function DashboardStats() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
       {stats.map((stat) => (
-        <Card key={stat.id} className="rounded-2xl shadow-md">
-            {stat.icon}
-            <p className="text-2xl font-bold mt-2">{stat.value}</p>
-            <p className="text-gray-500">{stat.label}</p>
+        <Card 
+          key={stat.id} 
+          title={stat.label} 
+          content={stat.value}
+        >
+          {stat.icon} 
         </Card>
       ))}
     </div>
