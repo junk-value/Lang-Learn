@@ -1,4 +1,4 @@
-import { Card, CardContent } from "./components/Card";
+import Card from "./Card";
 import { Bell } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -19,8 +19,7 @@ export default function Notifications() {
         <Bell className="w-5 h-5 text-blue-500" /> Notifications
       </h2>
       {notifications.map((note) => (
-        <Card key={note.id} className="rounded-2xl shadow-md">
-          <CardContent className="p-3">{note.text}</CardContent>
+        <Card title={note.id} className="rounded-2xl shadow-md" content={note.text}>
         </Card>
       ))}
     </motion.div>

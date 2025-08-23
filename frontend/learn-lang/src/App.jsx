@@ -11,6 +11,7 @@ import SearchWord from "./components/SearchWord";
 import ProgressTracker from "./components/ProgressTracker";
 import QuizMode from "./components/QuizMode";
 import UserProfile from "./components/UserProfile";
+import Notifications from "./components/Notifications";
 import './App.css';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <h1>Welcome to LearnLang!</h1>
 
       <Card title="Welcome" content="This is a learning App." />
+      <Notifications/>
       <LessonList />
       <div className="p-6">
       <UserProfile 
