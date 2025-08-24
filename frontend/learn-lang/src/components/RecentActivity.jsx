@@ -1,4 +1,5 @@
 import { Clock } from "lucide-react";
+import Card from "./Card";
 
 const activities = [
   { id: 1, action: "Learned 10 new words", time: "2 hours ago" },
@@ -12,6 +13,7 @@ export default function RecentActivity() {
     <div className="bg-white shadow-md rounded-2xl p-4 w-full">
       <h2 className="text-xl font-bold mb-3">Recent Activity</h2>
       <ul className="space-y-3">
+        <Card>
         {activities.map((activity) => (
           <li
             key={activity.id}
@@ -24,6 +26,7 @@ export default function RecentActivity() {
             </div>
           </li>
         ))}
+        </Card>
       </ul>
     </div>
   );

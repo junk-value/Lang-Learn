@@ -1,4 +1,5 @@
 import Card from "./Card";
+import RecentActivity from "./RecentActivity";
 import { Book, Target, Flame } from "lucide-react";
 
 const stats = [
@@ -19,6 +20,7 @@ export default function DashboardStats() {
           {stat.icon} 
         </Card>
       ))}
+      <RecentActivity/>
     </div>
   );
 }
