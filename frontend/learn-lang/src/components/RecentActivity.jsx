@@ -13,20 +13,17 @@ export default function RecentActivity() {
     <div className="bg-white shadow-md rounded-2xl p-4 w-full">
       <h2 className="text-xl font-bold mb-3">Recent Activity</h2>
       <ul className="space-y-3">
-        <Card>
+        
         {activities.map((activity) => (
-          <li
-            key={activity.id}
-            className="flex items-start space-x-3 border-b pb-2 last:border-b-0"
-          >
+          <Card>
             <Clock className="w-5 h-5 text-blue-500 mt-1" />
             <div>
               <p className="text-gray-800">{activity.action}</p>
               <p className="text-gray-500 text-sm">{activity.time}</p>
             </div>
-          </li>
+          </Card>
         ))}
-        </Card>
+        
       </ul>
     </div>
   );
