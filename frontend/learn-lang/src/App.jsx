@@ -15,6 +15,7 @@ import Notifications from "./components/Notifications";
 import DashboardStats from "./components/DashboardStats";
 import Achievements from "./components/Achievements";
 import RecentActivity from "./components/RecentActivity";
+import Profile from "./components/Profile";
 import './App.css';
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         email="tejal@example.com" 
         role="Frontend Developer" 
       />
+      <Profile/>
       </div>
 
       <div>
