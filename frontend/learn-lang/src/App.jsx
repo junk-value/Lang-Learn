@@ -13,8 +13,8 @@ import QuizMode from "./components/QuizMode";
 import UserProfile from "./components/UserProfile";
 import Notifications from "./components/Notifications";
 import DashboardStats from "./components/DashboardStats";
-import Achievements from "./Achievements";
-import RecentActivity from "./RecentActivity";
+import Achievements from "./components/Achievements";
+import RecentActivity from "./components/RecentActivity";
 import './App.css';
 
 function App() {
@@ -40,7 +40,6 @@ function App() {
       <Notifications/>
       <DashboardStats/>
       <LessonList />
-      <RecentActivity />
       <Achievements />
       <div className="p-6">
       <UserProfile 
