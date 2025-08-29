@@ -17,6 +17,16 @@ import Achievements from "./components/Achievements";
 import RecentActivity from "./components/RecentActivity";
 import Profile from "./components/Profile";
 import './App.css';
+import { ScoreProvider } from "./context/ScoreContext";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <ScoreProvider>
+      <App />
+    </ScoreProvider>
+  </React.StrictMode>
+);
+
 
 function App() {
   const [count, setCount] = useState(0);
