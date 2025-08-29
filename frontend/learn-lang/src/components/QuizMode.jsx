@@ -1,13 +1,12 @@
+// src/components/QuizMode.jsx
 import { useState } from "react";
-import Quiz from "./Quiz";
 
 export default function QuizMode({ words }) {
-  const [mode, setMode] = useState(null); // "random" or "mcq"
   const [currentWord, setCurrentWord] = useState(null);
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState("");
 
-  const startRandomQuiz = () => {
+  const startQuiz = () => {
     if (words.length === 0) {
       setFeedback("No words to quiz yet!");
       return;
@@ -16,7 +15,6 @@ export default function QuizMode({ words }) {
     setCurrentWord(randomWord);
     setAnswer("");
     setFeedback("");
-    setMode("random");
   };
 
   const checkAnswer = () => {
@@ -29,64 +27,42 @@ export default function QuizMode({ words }) {
   };
 
   return (
-    <div className="quiz-mode">
-      <h3 className="text-xl font-bold mb-4">Quiz Mode</h3>
-
-      {!mode && (
-        <div className="flex gap-4">
-          <button
-            onClick={startRandomQuiz}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md"
-          >
-            Start Random Quiz
-          </button>
-          <button
-            onClick={() => setMode("mcq")}
-            className="px-4 py-2 bg-green-600 text-white rounded-md"
-          >
-            Start Multiple Choice Quiz
-          </button>
-        </div>
-      )}
-
-      {mode === "random" && (
-        <div className="mt-4">
-          <p>
+    <div className="p-6 bg-white rounded-2xl shadow-md w-full max-w-md mx-auto text-center">
+      <h3 className="text-xl font-bold mb-4">🎯 Random Quiz</h3>
+      {!currentWord ? (
+        <button
+          onClick={startQuiz}
+          className="px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
+        >
+          Start Quiz
+        </button>
+      ) : (
+        <>
+          <p className="mb-3 text-lg">
             Translate: <strong>{currentWord.word}</strong>
           </p>
           <input
             type="text"
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
-            className="border rounded p-2 mt-2"
+            placeholder="Type your answer..."
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 mb-3"
           />
           <button
             onClick={checkAnswer}
-            className="ml-2 px-4 py-2 bg-indigo-500 text-white rounded-md"
+            className="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition"
           >
             Check
           </button>
-          <p className="mt-2">{feedback}</p>
-          <button
-            onClick={() => setMode(null)}
-            className="mt-4 text-sm text-gray-600 underline"
-          >
-            Back to Quiz Menu
-          </button>
-        </div>
+        </>
       )}
-
-      {mode === "mcq" && (
-        <div className="mt-4">
-          <Quiz />
-          <button
-            onClick={() => setMode(null)}
-            className="mt-4 text-sm text-gray-600 underline"
-          >
-            Back to Quiz Menu
-          </button>
-        </div>
-      )}
+      <p
+        className={`mt-4 font-medium ${
+          feedback.includes("✅") ? "text-green-600" : "text-red-600"
+        }`}
+      >
+        {feedback}
+      </p>
     </div>
   );
 }
