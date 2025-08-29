@@ -56,6 +56,12 @@ export default function QuizMode({ words }) {
           </button>
         </>
       )}
+      <button
+      onClick={startQuiz}
+      className="mt-3 px-6 py-2 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition"
+>
+  Next Word
+</button>
       <p
         className={`mt-4 font-medium ${
           feedback.includes("✅") ? "text-green-600" : "text-red-600"
