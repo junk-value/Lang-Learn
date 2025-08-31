@@ -1,4 +1,3 @@
-// src/components/WordOfTheDay.jsx
 import { useMemo } from "react";
 import { wordsList } from "../utils/data";
 
