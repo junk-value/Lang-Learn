@@ -50,6 +50,11 @@ function App() {
       <Card title="Welcome" content="This is a learning App." />
       <Notifications/>
       <DashboardStats/>
+      <UserStats
+  learnedWords={learnedWords.length}
+  quizzesCompleted={5}
+  streak={7}
+/>
       <LessonList />
       <Achievements />
       <div className="p-6">
