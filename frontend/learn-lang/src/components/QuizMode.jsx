@@ -17,6 +17,21 @@ export default function QuizMode({ words }) {
   return () => window.removeEventListener("keydown", handleKey);
 }, [answer, currentWord]);
 
+useEffect(() => {
+  const stored = JSON.parse(localStorage.getItem("quizProgress"));
+  if (stored) {
+    setCurrentWord(stored.currentWord);
+    setFeedback(stored.feedback);
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem(
+    "quizProgress",
+    JSON.stringify({ currentWord, feedback })
+  );
+}, [currentWord, feedback]);
+
 
   const startQuiz = () => {
     if (words.length === 0) {
