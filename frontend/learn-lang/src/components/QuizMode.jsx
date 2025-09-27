@@ -7,6 +7,17 @@ export default function QuizMode({ words }) {
   const [score, setScore] = useState(0);
   const [questionCount, setQuestionCount] = useState(0);
 
+
+  useEffect(() => {
+  const handleKey = (e) => {
+    if (e.key === "Enter") checkAnswer();
+    if (e.key.toLowerCase() === "n") startQuiz();
+  };
+  window.addEventListener("keydown", handleKey);
+  return () => window.removeEventListener("keydown", handleKey);
+}, [answer, currentWord]);
+
+
   const startQuiz = () => {
     if (words.length === 0) {
       setFeedback("No words to quiz yet!");
